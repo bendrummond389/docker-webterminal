@@ -1,0 +1,30 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: prisma-migration
+spec:
+  template:
+    spec:
+      containers:
+      - name: migration
+        image: bendrummond389/next-app
+        command: ["npx", "prisma", "migrate", "deploy"]
+        env:
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: postgres-secret
+              key: POSTGRES_PASSWORD
+        - name: POSTGRES_USER
+          valueFrom:
+            secretKeyRef:
+              name: postgres-secret
+              key: POSTGRES_USER
+        - name: POSTGRES_DB
+          valueFrom:
+            secretKeyRef:
+              name: postgres-secret
+              key: POSTGRES_DB
+        - name: DATABASE_URL
+          value: postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres-db-service:5432/${POSTGRES_DB}
+      restartPolicy: OnFailure

@@ -1,0 +1,51 @@
+.
+├── README.md
+├── k8s
+│   ├── next-app
+│   │   ├── deployment.yaml
+│   │   └── service.yaml
+│   ├── postgres-db
+│   │   ├── deployment.yaml
+│   │   ├── persistentvolumeclaim.yaml
+│   │   └── service.yaml
+│   └── web-terminals
+│       ├── deployment.yaml
+│       └── service.yaml
+├── next-env.d.ts
+├── next.config.js
+├── package-lock.json
+├── package.json
+├── prisma
+│   ├── migrations
+│   │   ├── 20230605053604_init
+│   │   │   └── migration.sql
+│   │   ├── 20230605111519_changed_user
+│   │   │   └── migration.sql
+│   │   └── migration_lock.toml
+│   └── schema.prisma
+├── public
+│   ├── next.svg
+│   └── vercel.svg
+├── src
+│   ├── components
+│   ├── contexts
+│   │   ├── RootContext.tsx
+│   │   └── UserContext.tsx
+│   ├── pages
+│   │   ├── _app.tsx
+│   │   ├── api
+│   │   │   ├── auth
+│   │   │   │   └── [...auth0].ts
+│   │   │   ├── home.tsx
+│   │   │   └── user.ts
+│   │   ├── containers.tsx
+│   │   ├── index.tsx
+│   │   ├── login.tsx
+│   │   └── profile.tsx
+│   ├── styles
+│   └── util
+│       └── fetchUser.ts
+├── tree.txt
+└── tsconfig.json
+
+18 directories, 31 files
