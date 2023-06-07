@@ -1,12 +1,15 @@
 .
+├── Dockerfile
 ├── README.md
 ├── k8s
 │   ├── next-app
 │   │   ├── deployment.yaml
+│   │   ├── migrations-job.yaml
 │   │   └── service.yaml
 │   ├── postgres-db
 │   │   ├── deployment.yaml
 │   │   ├── persistentvolumeclaim.yaml
+│   │   ├── secret.yaml
 │   │   └── service.yaml
 │   └── web-terminals
 │       ├── deployment.yaml
@@ -36,16 +39,19 @@
 │   │   ├── api
 │   │   │   ├── auth
 │   │   │   │   └── [...auth0].ts
+│   │   │   ├── containers
+│   │   │   │   ├── createPods.ts
+│   │   │   │   └── getPods.ts
 │   │   │   ├── home.tsx
 │   │   │   └── user.ts
 │   │   ├── containers.tsx
 │   │   ├── index.tsx
 │   │   ├── login.tsx
 │   │   └── profile.tsx
+│   ├── services
 │   ├── styles
 │   └── util
-│       └── fetchUser.ts
 ├── tree.txt
 └── tsconfig.json
 
-18 directories, 31 files
+20 directories, 35 files

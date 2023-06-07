@@ -11,11 +11,19 @@ datasource db {
 }
 
 model User {
-  id        Int        @id @default(autoincrement())
-  auth0Id   String     @unique
-  name      String
-  email     String     @unique
-  Container Container[]
+  id            Int         @id @default(autoincrement())
+  given_name    String
+  family_name   String
+  nickname      String
+  name          String
+  picture       String
+  locale        String
+  updated_at    DateTime   @default(now()) @updatedAt
+  email         String     @unique
+  email_verified Boolean
+  sub           String
+  sid           String
+  containers    Container[] @relation("UserToContainer")
 }
 
 model Container {
@@ -23,7 +31,7 @@ model Container {
   name        String
   info        String
   userId      Int
-  User        User    @relation(fields: [userId], references: [id])
+  User        User    @relation(name: "UserToContainer", fields: [userId], references: [id])
   namespace   String
   deployment  String
 }

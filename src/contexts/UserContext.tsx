@@ -1,21 +1,6 @@
-'use client';
-
-import ensureUserInDb from '@/util/userDbUtils';
+import { withPageAuthRequired } from '@auth0/nextjs-auth0/client';
 import React, { createContext, useState } from 'react';
-
-export type UserType = {
-  given_name: string;
-  family_name: string;
-  nickname: string;
-  name: string;
-  picture: string;
-  locale: string;
-  updated_at: string;
-  email: string;
-  email_verified: boolean;
-  sub: string;
-  sid: string;
-};
+import { User as UserType } from '@prisma/client';
 
 type UserContextType = {
   user: UserType | null;
@@ -30,12 +15,7 @@ export const UserContext = createContext<UserContextType>({
 export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [user, setUser] = useState<UserType | null>(null);
 
-  const handleSetUser = async (newUser: UserType | null) => {
-    setUser(newUser);
-    if (newUser) {
-      await ensureUserInDb(newUser);
-    }
-  };
-
-  return <UserContext.Provider value={{ user, setUser: handleSetUser }}>{children}</UserContext.Provider>;
+  return <UserContext.Provider value={{ user, setUser }}>{children}</UserContext.Provider>;
 };
+
+
