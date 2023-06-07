@@ -1,7 +1,7 @@
 import { NextPageContext } from 'next';
 
 const LoginPage = () => {
-  return <></>; // you can replace null with <></> for react fragment
+  return <></>; 
 };
 
 export async function getServerSideProps({ res }: NextPageContext) {
