@@ -27,7 +27,7 @@ COPY . .
 # Uncomment the following line in case you want to disable telemetry during the build.
 # ENV NEXT_TELEMETRY_DISABLED 1
 
-RUN yarn prisma generate
+
 RUN yarn build
 
 # If using npm comment out above and use below instead
@@ -54,6 +54,8 @@ RUN npm install @prisma/client prisma
 # https://nextjs.org/docs/advanced-features/output-file-tracing
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+
+RUN yarn prisma generate
 
 USER nextjs
 

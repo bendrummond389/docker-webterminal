@@ -12,8 +12,10 @@ spec:
       labels:
         app: next-app
     spec:
+      serviceAccountName: next-app-service-account
       containers:
       - name: next-app
-        image: bendrummond389/next-app
+        image: bendrummond389/next-app:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 3000

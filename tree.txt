@@ -11,6 +11,10 @@
 │   │   ├── persistentvolumeclaim.yaml
 │   │   ├── secret.yaml
 │   │   └── service.yaml
+│   ├── rbac
+│   │   ├── clusterrole.yaml
+│   │   ├── clusterrolebinding.yaml
+│   │   └── serviceaccount.yaml
 │   └── web-terminals
 │       ├── deployment.yaml
 │       └── service.yaml
@@ -20,9 +24,17 @@
 ├── package.json
 ├── prisma
 │   ├── migrations
-│   │   ├── 20230605053604_init
+│   │   ├── 20230606094745_init
 │   │   │   └── migration.sql
-│   │   ├── 20230605111519_changed_user
+│   │   ├── 20230609105122_
+│   │   │   └── migration.sql
+│   │   ├── 20230609114918_blah
+│   │   │   └── migration.sql
+│   │   ├── 20230609153350_gfds
+│   │   │   └── migration.sql
+│   │   ├── 20230609233136_addingress
+│   │   │   └── migration.sql
+│   │   ├── 20230610012908_added_path_to_ingress
 │   │   │   └── migration.sql
 │   │   └── migration_lock.toml
 │   └── schema.prisma
@@ -31,6 +43,8 @@
 │   └── vercel.svg
 ├── src
 │   ├── components
+│   │   ├── ContainerList.tsx
+│   │   └── WebTerminal.tsx
 │   ├── contexts
 │   │   ├── RootContext.tsx
 │   │   └── UserContext.tsx
@@ -40,10 +54,19 @@
 │   │   │   ├── auth
 │   │   │   │   └── [...auth0].ts
 │   │   │   ├── containers
-│   │   │   │   ├── createPods.ts
-│   │   │   │   └── getPods.ts
+│   │   │   │   ├── createIngress.ts
+│   │   │   │   ├── createNode.ts
+│   │   │   │   ├── createPod.ts
+│   │   │   │   ├── createService.ts
+│   │   │   │   ├── deletePod.ts
+│   │   │   │   ├── getIngressPath.ts
+│   │   │   │   ├── getIngresses.ts
+│   │   │   │   ├── getPods.ts
+│   │   │   │   └── getServices.ts
 │   │   │   ├── home.tsx
-│   │   │   └── user.ts
+│   │   │   ├── user.ts
+│   │   │   └── websockets
+│   │   │       └── websockets.ts
 │   │   ├── containers.tsx
 │   │   ├── index.tsx
 │   │   ├── login.tsx
@@ -54,4 +77,4 @@
 ├── tree.txt
 └── tsconfig.json
 
-20 directories, 35 files
+26 directories, 52 files
